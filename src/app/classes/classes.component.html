@@ -1,0 +1,120 @@
+<div class="content">
+  <h1>Classes</h1>
+  <h2>Add a new class</h2>
+  <div>First create a class by using a className. After edit the created class and set a teacher to it.</div>
+  <i (click)="toggleShowForm()">show/hide inputs</i>
+  <form *ngIf="showForm" (submit)="addClass(name, picpath, $event)">
+	  <input required minlength="3" type="text" #name placeholder="name" />
+	  <input type="text" #picpath placeholder="picture path" />
+	  <input type="submit" value="Add new class"  />
+  </form>
+  <div *ngFor="let class of classes, let i = index">
+    <div class="class">
+      <div class="description">
+        <table *ngIf="!class.editMode">
+          <tr>
+            <td rowspan="6">
+              <img src="{{class.picpath}}"/>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <div class="name">Class {{class.name}}</div>
+            </td>
+          </tr>
+          <tr>
+            <td>Teacher:</td>
+            <td>{{class.classTeacher}}</td>
+          </tr>
+          <tr>
+            <td>Students:</td>
+            <td>{{class.students.length}}</td>
+          </tr>
+          <tr>
+            <td>Class Speaker:</td>
+            <td>{{class.classSpeaker}}</td>
+          </tr>
+          <tr>
+            <td>Class Folder:</td>
+            <td>{{class.classFolder}}</td>
+          </tr>
+        </table>
+        <table *ngIf="class.editMode">
+          <tr>
+            <td rowspan="7">
+              <img src="{{class.picpath}}"/>
+              <input type="text" #picpathEdit value="{{class.picpath}}">
+              (leave empty to reset)
+            </td>
+          </tr>
+          <tr>
+            <td>Name:</td>
+            <td> <input required type="text" #nameEdit value="{{class.name}}"/> </td>
+          </tr>
+          <tr>
+            <td>Teacher:</td>
+            <td>
+              <select class="edit" [(ngModel)]="class.classTeacher" name="teacherEdit" #teacherEdit>
+              <option *ngFor="let teacher of teachers, let i = index" [ngValue]="teacher.forename + ' ' + teacher.surname">
+              {{teacher.forename}} {{teacher.surname}}
+              </option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Speaker:</td>
+            <td>
+              <select class="edit" [(ngModel)]="class.classSpeaker" name="speakerEdit" #speakerEdit>
+              <option *ngFor="let student of class.students, let i = index" [ngValue]="student.forename + ' ' + student.surname">
+              {{student.forename}} {{student.surname}}
+              </option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Folder:</td>
+            <td>
+              <select class="edit" [(ngModel)]="class.classFolder" name="folderEdit" #folderEdit>
+              <option *ngFor="let student of class.students, let i = index" [ngValue]="student.forename + ' ' + student.surname">
+              {{student.forename}} {{student.surname}}
+              </option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>rem. Stud.:</td>
+            <td>
+			  <select class="edit" [(ngModel)]="class.remStudent" name="folderEdit" #remStudent>
+				<option [ngValue]="null"></option>
+				<option *ngFor="let student of class.students, let i = index" [ngValue]="student.forename + ' ' + student.surname">
+					{{student.forename}} {{student.surname}}
+				</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3"></td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <button (click)="saveEditMode(i,nameEdit, picpathEdit, folderEdit, speakerEdit, teacherEdit, remStudent, $event)">
+              Save Changes
+              </button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="settings">
+        <button *ngIf="class.editMode"(click)="toggleEditMode(i)">
+        Disable Edit
+        </button>
+        <button *ngIf="!class.editMode"(click)="toggleEditMode(i)">
+        Enable Edit
+        </button>
+        <button (click)="deleteClass(i)">
+        Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

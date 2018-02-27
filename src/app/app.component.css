@@ -1,0 +1,12 @@
+.adminWarning {
+    position: fixed;
+    background: rgba(255, 0, 0, 0.66);
+    color: #791212;
+    text-align: center;
+    top: 53px;
+    width: calc(100% - 250px);
+    left: 250px;
+    padding: 5px;
+    font-family: 'Lato', sans-serif;
+    z-index: 99;
+}

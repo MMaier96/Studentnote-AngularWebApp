@@ -1,0 +1,14 @@
+<div class="sidebar">
+  <div class="profile">
+    <div class="photo"><img src="{{currentUser.picpath}}" width="150px" height="150px"></div>
+    <span class="name">{{currentUser.forename}} {{currentUser.surname}}</span>
+  </div>
+  <div class="nav-bar">
+    <a [routerLink]="['/','dashboard']"><div class="nav-button">Dashboard</div></a>
+    <a [routerLink]="['/','students']"><div class="nav-button">Schüler</div></a>
+    <a [routerLink]="['/','teacher']"><div class="nav-button">Lehrer</div></a>
+    <a [routerLink]="['/','classes']"><div class="nav-button">Klassen</div></a>
+    <a (click)="logout()"><div class="nav-button last">Log out</div></a>
+  </div>
+  <span class="copyright">&copy; Marcel Maier, Florian Schenk, Lukas Weber, Peter Fischer</span>
+</div>

@@ -1,0 +1,32 @@
+<div class="content">
+
+
+  <h1>Profile</h1>
+  <h2 *ngIf="selected">This is the profile for <i>{{student.forename}} {{student.surname}}</i></h2>
+  <h2 *ngIf="averageRating != -1">Average Rating: {{averageRating}}/5 Stars!</h2>
+
+  <i *ngIf="!selected">Sorry! There is no student selected, please select a student on the dashboard to create a note for it</i>
+
+  <div class="note" *ngFor="let note of student.notes, let i = index">
+    <p class="date">{{note.date}}</p>
+    <p class="time">{{note.time}}</p>
+    <h2>{{note.title}}</h2>
+    <p>{{note.message}}</p>
+    <div class="stars">
+      <input [checked]="note.rating == 5" class="star star-5" id="star-5{{i}}" type="radio" name="star{{i}}"/>
+      <label class="star star-5" for="star-5{{i}}"></label>
+      <input [checked]="note.rating == 4" class="star star-4" id="star-4{{i}}" type="radio" name="star{{i}}"/>
+      <label class="star star-4" for="star-4{{i}}"></label>
+      <input [checked]="note.rating == 3" class="star star-3" id="star-3{{i}}" type="radio" name="star{{i}}"/>
+      <label class="star star-3" for="star-3{{i}}"></label>
+      <input [checked]="note.rating == 2" class="star star-2" id="star-2{{i}}" type="radio" name="star{{i}}"/>
+      <label class="star star-2" for="star-2{{i}}"></label>
+      <input [checked]="note.rating == 1" class="star star-1" id="star-1{{i}}" type="radio" name="star{{i}}"/>
+      <label class="star star-1" for="star-1{{i}}"></label>
+    </div>
+    <input type="submit" value="Edit" (click)="editNote(i)">
+    <input type="submit" value="Delete" (click)="deleteNote(i)">
+    <p class="creator">{{note.creator}}</p>
+  </div>
+
+</div>

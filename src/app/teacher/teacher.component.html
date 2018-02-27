@@ -1,0 +1,130 @@
+<div class="content">
+
+
+    <h1>Teachers</h1>
+    <h2>Add a new teacher</h2>
+
+    <i (click)="toggleShowForm()">show/hide inputs</i>
+        <form *ngIf="showForm" (submit)="addTeacher(forename, surname, password, mail, age, street, house, zip, city, $event, picpath)">
+            <input required type="text" #forename placeholder="forename" >
+            <input required type="text" #surname placeholder="surname" >
+            <input required type="password" #password placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" >
+            <input type="text" #picpath placeholder="picture filepath" >
+            <input required type="email" #mail placeholder="Mail" >
+            <input required type="number" #age placeholder="age" >
+            <div class="double-field">
+                <input class="big" required type="text" #street placeholder="street" >
+                <input class="small" required type="number" #house placeholder="house" >
+            </div>
+            <div class="double-field">
+                <input class="small" required type="number" #zip placeholder="zip" >
+                <input class="big" required type="text" #city placeholder="city" >
+            </div>
+
+            <input type="submit" value="Add new teacher"  >
+        </form>
+
+
+
+    <div *ngFor="let teacher of teachers, let i = index">
+        <div class="teacher">
+            <div class="description">
+                <table *ngIf="!teacher.editMode">
+                    <tr><td rowspan="5">
+                        <img src="{{teacher.picpath}}"/>
+                    </td></tr>
+                    <tr>
+                        <td colspan="2">
+                            <div *ngIf="!teacher.editMode" class="name">
+                                {{teacher.forename}}
+                                {{teacher.surname}}
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Email:</td>
+                        <td><a href="mailto:{{teacher.mail}}">{{teacher.mail}}</a></td>
+                    </tr>
+                    <tr>
+                        <td>Age:</td>
+                        <td>{{teacher.age}}</td>
+                    </tr>
+                    <tr>
+                        <td>Address:</td>
+                        <td>{{teacher.address.street}} {{teacher.address.house}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td>{{teacher.address.zip}} {{teacher.address.city}}</td>
+                    </tr>
+                </table>
+
+                <table *ngIf="teacher.editMode">
+                    <tr>
+                        <td rowspan="7">
+                            <img src="{{teacher.picpath}}"/>
+                            <input type="text" #picpathEdit value="{{teacher.picpath}}">
+                            (leave empty to reset)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Forename:</td>
+                        <td> <input required type="text" #forenameEdit value="{{teacher.forename}}"/> </td>
+                    </tr>
+                    <tr>
+                        <td>Surname:</td>
+                        <td> <input required type="text" #surnameEdit value="{{teacher.surname}}"/> </td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td> <input required type="password" #passwordEdit value="{{teacher.password}}"/> </td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td> <input required type="email" #mailEdit value="{{teacher.mail}}"/> </td>
+                    </tr>
+                    <tr>
+                        <td>Age:</td>
+                        <td><input required type="number" #ageEdit value="{{teacher.age}}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Address:</td>
+                        <td>
+                            <input required type="text" #streetEdit value="{{teacher.address.street}}"/>
+                            <input required type="number" #houseEdit value="{{teacher.address.house}}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td>
+                            <input required type="number" #zipEdit value="{{teacher.address.zip}}"/>
+                            <input required type="text" #cityEdit value="{{teacher.address.city}}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <button (click)="saveEditMode(i,forenameEdit, surnameEdit, passwordEdit, mailEdit, ageEdit, streetEdit, houseEdit, zipEdit, cityEdit, $event, picpathEdit)">
+                                Save Changes
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+
+            <div class="settings">
+
+                <button *ngIf="teacher.editMode"(click)="toggleEditMode(i)">
+                    Disable Edit
+                </button>
+                <button *ngIf="!teacher.editMode"(click)="toggleEditMode(i)">
+                    Enable Edit
+                </button>
+                <button (click)="deleteTeacher(i)">
+                    Delete
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

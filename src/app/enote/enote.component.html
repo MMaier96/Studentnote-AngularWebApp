@@ -1,0 +1,22 @@
+<div class="content">
+  <h1>Create Notes</h1>
+  <h2 *ngIf="selected">Edit a note</h2>
+  <i *ngIf="!selected">Sorry! There is no note selected, please select a note on a students profile to edit the note</i>
+  <form (submit)="saveNote(title, message, stars, $event)" *ngIf="selected">
+  <input #title type="text" value="{{note.title}}">
+  <textarea #message>{{note.message}}</textarea>
+  <div #stars class="stars">
+    <input [checked]="note.rating == 5" class="star star-5" id="star-5{{i}}" type="radio" name="star{{i}}"/>
+    <label class="star star-5" for="star-5{{i}}"></label>
+    <input [checked]="note.rating == 4" class="star star-4" id="star-4{{i}}" type="radio" name="star{{i}}"/>
+    <label class="star star-4" for="star-4{{i}}"></label>
+    <input [checked]="note.rating == 3" class="star star-3" id="star-3{{i}}" type="radio" name="star{{i}}"/>
+    <label class="star star-3" for="star-3{{i}}"></label>
+    <input [checked]="note.rating == 2" class="star star-2" id="star-2{{i}}" type="radio" name="star{{i}}"/>
+    <label class="star star-2" for="star-2{{i}}"></label>
+    <input [checked]="note.rating == 1" class="star star-1" id="star-1{{i}}" type="radio" name="star{{i}}"/>
+    <label class="star star-1" for="star-1{{i}}"></label>
+  </div>
+  <input type="submit" value="Save Note">
+  </form>
+</div>

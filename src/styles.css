@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+*{
+  padding: 0px;
+  margin: 0px;
+}
+a,a:hover,a:visited,a:link,a:focus{
+  text-decoration: none;
+  color: #fff;
+}

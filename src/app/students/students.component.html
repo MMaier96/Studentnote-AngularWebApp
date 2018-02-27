@@ -1,0 +1,135 @@
+<div class="content">
+
+
+  <h1>Students</h1>
+  <h2>Add a new student</h2>
+
+  <i (click)="toggleShowForm()">show/hide inputs</i>
+  <form *ngIf="showForm" (submit)="addStudent(schoolclass,forename, surname, age, street, house, zip, city, $event, picpath)">
+    <input required type="text" #forename placeholder="forename" >
+    <input required type="text" #surname placeholder="surname" >
+    <input required type="text" #picpath placeholder="Picture Path" >
+    <label>Students Class:</label>
+    <select [(ngModel)]="schoolclass2" name="schoolclass" #schoolclass>
+      <option *ngFor="let class2 of classes, let i = index" [ngValue]="class2.name">
+        {{class2.name}}
+      </option>
+    </select>
+    <input required type="number" #age placeholder="age" >
+    <div class="double-field">
+      <input class="big" required type="text" #street placeholder="street" >
+      <input class="small" required type="number" #house placeholder="house" >
+    </div>
+    <div class="double-field">
+      <input class="small" required type="number" #zip placeholder="zip" >
+      <input class="big" required type="text" #city placeholder="city" >
+    </div>
+
+    <input type="submit" value="Add new student"  >
+  </form>
+
+
+
+  <div *ngFor="let student of students, let i = index">
+    <div class="student">
+      <div class="description">
+        <table *ngIf="!student.editMode">
+          <tr><td rowspan="5">
+            <img src="{{student.picpath}}"/>
+          </td></tr>
+          <tr>
+            <td colspan="2">
+              <div *ngIf="!student.editMode" class="name">
+                {{student.forename}}
+                {{student.surname}}
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Age:</td>
+            <td>{{student.age}}</td>
+          </tr>
+          <tr>
+            <td>Class:</td>
+            <td>{{student.className}}</td>
+          </tr>
+          <tr>
+            <td>Address:</td>
+            <td>{{student.address.street}} {{student.address.house}}</td>
+          </tr>
+          <tr>
+            <td colspan="2"></td>
+            <td>{{student.address.zip}} {{student.address.city}}</td>
+          </tr>
+        </table>
+
+        <table *ngIf="student.editMode">
+          <tr>
+            <td rowspan="7">
+              <img src="{{student.picpath}}"/>
+              <input type="text" #picpathEdit value="{{student.picpath}}">
+              (leave empty to reset)
+            </td>
+          </tr>
+          <tr>
+            <td>Forename:</td>
+            <td> <input required type="text" #forenameEdit value="{{student.forename}}"/> </td>
+          </tr>
+          <tr>
+            <td>Surname:</td>
+            <td> <input required type="text" #surnameEdit value="{{student.surname}}"/> </td>
+          </tr>
+          <tr>
+            <td>Class:</td>
+            <td>
+              <select class="edit" [(ngModel)]="student.className" name="schoolclassEdit" #schoolclassEdit>
+                <option *ngFor="let class2 of classes, let i = index" [ngValue]="class2.name">
+                  {{class2.name}}
+                </option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Age:</td>
+            <td><input required type="number" #ageEdit value="{{student.age}}"/></td>
+          </tr>
+          <tr>
+            <td>Address:</td>
+            <td>
+              <input required type="text" #streetEdit value="{{student.address.street}}"/>
+              <input required type="number" #houseEdit value="{{student.address.house}}"/>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <input required type="number" #zipEdit value="{{student.address.zip}}"/>
+              <input required type="text" #cityEdit value="{{student.address.city}}"/>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <button (click)="saveEditMode(i,forenameEdit, surnameEdit, schoolclassEdit, ageEdit, streetEdit, houseEdit, zipEdit, cityEdit, $event, picpathEdit)">
+                Save Changes
+              </button>
+            </td>
+          </tr>
+        </table>
+
+      </div>
+
+      <div class="settings">
+
+        <button *ngIf="student.editMode"(click)="toggleEditMode(i)">
+          Disable Edit
+        </button>
+        <button *ngIf="!student.editMode"(click)="toggleEditMode(i)">
+          Enable Edit
+        </button>
+        <button (click)="deleteStudent(i)">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

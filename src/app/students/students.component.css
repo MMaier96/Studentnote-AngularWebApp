@@ -1,0 +1,149 @@
+form {
+    padding: 20px 0px 30px;
+    margin: 0 auto;
+    font-family: Arial;
+}
+input {
+    padding-left: 8px;
+}
+i {
+    text-decoration: underline;
+    font-size: 1.15em;
+    cursor: pointer;
+}
+h1 {
+    padding-top: 5px;
+    margin: 15px 0px !important;
+    font-size: 2.6em;
+    font-family: 'Lato', sans-serif;
+    color: #333;
+}
+h2 {
+    padding: 20px;
+    font-size: 1.6em;
+    font-family: 'Lato', sans-serif;
+    color: #444;
+}
+form input:not([type="email"]) {
+    text-transform: capitalize;
+}
+form input,
+button {
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+    width: 292px;
+    height: 30px;
+}
+label {
+    padding: 0px 25px;
+}
+select {
+    margin: 10px 0px 10px 16px;
+    padding-left: 8px;
+    width: 120px;
+    height: 30px;
+}
+select.edit {
+    margin: 3px 0px 4px 0px;
+    padding-left: 8px;
+    width: 181px;
+    height: 22px;
+}
+form input[type="submit"] {
+    width: 304px;
+}
+form input[type="number"] {
+    padding-left: 16px;
+    width: 286px;
+}
+.double-field input {
+    display: inline;
+}
+.double-field input.small {
+    width: 58px;
+}
+.double-field input.middle {
+    width: 150px;
+}
+.double-field input.big {
+    width: 221px;
+}
+div.student {
+    width: 650px;
+    box-shadow: 0.5px 0.5px 2.5px 0.05px #333;
+    padding: 20px;
+    margin: 40px auto;
+}
+div.description {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    padding-left: 40px;
+    font-family: 'Roboto', sans-serif;
+}
+div.name {
+    text-transform: capitalize;
+    display: block;
+    font-size: 2.3em;
+    text-align: left;
+    color: #2a3035;
+}
+div.name input {
+    text-transform: capitalize;
+    font-size: 0.6em;
+    color: #2a3035;
+    width: 139.5px;
+}
+table a {
+    color: #000;
+}
+table {
+    font-size: 1.1em;
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+}
+table input {
+    text-transform: capitalize;
+}
+table td {
+    vertical-align: top;
+    padding-right: 41px;
+    text-transform: capitalize;
+}
+table td a {
+    text-transform: none;
+}
+.student button {
+    display: inline;
+    width: 146px;
+    margin-left: 12px;
+}
+.student .settings {
+    margin-left: 136px;
+}
+table input {
+    display: block;
+    margin: 3px 0px;
+    height: 20px;
+}
+table td[colspan="3"] button {
+    display: block;
+    width: 308px;
+    margin-left: 202px;
+}
+table td[rowspan="7"] input {
+    width: 147px;
+}
+table td[rowspan="7"] img {
+    width: 150px;
+    height: 150px;
+}
+table td[rowspan="7"] {
+    font-size: 0.7em;
+    text-align: center;
+}
+table td[rowspan="5"] img {
+    width: 150px;
+    height: 150px;
+}

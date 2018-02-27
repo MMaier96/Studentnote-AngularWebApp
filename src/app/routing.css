@@ -1,0 +1,15 @@
+div.content {
+    position: absolute;
+    margin-top: 20px;
+    text-align: center;
+    margin: 0px auto;
+    top: 47px;
+    width: calc(100% - 250px);
+    left: 250px;
+}
+h1 {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5em;
+    margin-bottom: 80px;
+}

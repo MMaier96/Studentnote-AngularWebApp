@@ -1,0 +1,5 @@
+<login *ngIf="!loggedIn"></login>
+<topbar *ngIf="loggedIn"></topbar>
+<sidebar *ngIf="loggedIn"></sidebar>
+<div *ngIf="isAdminLoggedIn" class="adminWarning">You are currently logged in as administrator. This mode is anticipated for creating test data or to fix bugs. Please sign in as a teacher!!!</div>
+<router-outlet *ngIf="loggedIn"></router-outlet>

@@ -1,0 +1,125 @@
+form {
+    padding: 20px 0px 30px;
+    margin: 0 auto;
+}
+i {
+    text-decoration: underline;
+    font-size: 1.15em;
+    cursor: pointer;
+}
+h1 {
+    padding-top: 5px;
+    margin: 15px 0px !important;
+    font-size: 2.6em;
+    font-family: 'Lato', sans-serif;
+    color: #333;
+}
+h2 {
+    padding: 20px;
+    font-size: 1.6em;
+    font-family: 'Lato', sans-serif;
+    color: #444;
+}
+form input:not([type="email"]) {
+    text-transform: capitalize;
+}
+form input,
+button {
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+    width: 300px;
+    height: 30px;
+}
+form input[type="submit"] {
+    width: 304px;
+}
+form input[type="number"] {
+    padding-left: 16px;
+    width: 286px;
+}
+div.class {
+    width: 650px;
+    box-shadow: 0.5px 0.5px 2.5px 0.05px #333;
+    padding: 20px;
+    margin: 40px auto;
+}
+div.description {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    padding-left: 40px;
+    font-family: 'Roboto', sans-serif;
+}
+div.name {
+    text-transform: capitalize;
+    display: block;
+    font-size: 2.3em;
+    text-align: left;
+    color: #2a3035;
+}
+div.name input {
+    text-transform: capitalize;
+    font-size: 0.6em;
+    color: #2a3035;
+    width: 139.5px;
+}
+table a {
+    color: #000;
+}
+table {
+    font-size: 1.0em;
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+}
+table input {
+    text-transform: capitalize;
+}
+table input[type="email"] {
+    text-transform: initial;
+}
+table tr {
+    height: 10px;
+}
+table td {
+    vertical-align: top;
+    padding-right: 50px;
+    text-transform: capitalize;
+}
+table td a {
+    text-transform: none;
+}
+.class button {
+    display: inline;
+    width: 146px;
+    margin-left: 12px;
+}
+.class .settings {
+    margin-left: 136px;
+}
+table select {
+    width: 100%;
+    text-transform: capitalize;
+    height: 25px;
+}
+table input {
+    display: block;
+    margin: 3px 0px;
+    height: 20px;
+}
+table td[colspan="3"] button {
+    display: block;
+    width: 308px;
+    margin-left: 202px;
+}
+table td[rowspan] input {
+    width: 147px;
+}
+table td[rowspan] img {
+    width: 150px;
+    height: 150px;
+}
+table td[rowspan] {
+    font-size: 0.7em;
+    text-align: center;
+}

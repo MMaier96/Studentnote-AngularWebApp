@@ -1,0 +1,27 @@
+<div class="background">
+  <div (click)="createTestData()" id="create-test-data"></div>
+  
+  <div class="content">
+
+    <form (submit)="login(username,password,$event)">
+      <div class="logo-container">
+        <div class="logo"></div><span class="title">Student<span class="highlight">note</span></span>
+      </div>
+      <div *ngIf="showUsernameHint" [@fadeInOut] class="hint username">
+        <div class="hintbox">use <i>forename.surname</i> of a teacher</div>
+        <div class="triangle"></div>
+      </div>
+	  <div *ngIf="showNoTeachersHint" [@fadeInOut] class="hint noteacher">
+        <div class="hintbox">No teachers. Log in as admin:admin</div>
+        <div class="triangle"></div>
+      </div>
+      <div *ngIf="showPasswordHint" class="hint password">
+        <div class="hintbox">wrong password!</div>
+        <div class="triangle"></div>
+      </div>
+      <input required type="text" #username placeholder="Username">
+      <input required type="password" #password placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;">
+      <input type="submit" value="Login">
+    </form>
+  </div>
+</div>

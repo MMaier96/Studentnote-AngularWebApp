@@ -1,0 +1,27 @@
+div {
+    background: #2a3035;
+    padding: 8px 10px;
+    width: calc(100% - 20px);
+    z-index: 100;
+    position: fixed;
+}
+.logo {
+    top: 7px;
+    width: 32px;
+    height: 32px;
+    background: url("../../assets/images/logo.png") no-repeat;
+    position: absolute;
+    display: inline;
+}
+span.title {
+    margin-top: -4px;
+    padding-left: 48px;
+    color: #fff;
+    font-size: 1.9em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+}
+span.title .highlight {
+    text-transform: uppercase;
+    color: #13a2e5;
+}
